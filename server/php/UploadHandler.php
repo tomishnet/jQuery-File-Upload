@@ -332,6 +332,7 @@ class UploadHandler
         if ($this->is_valid_file_object($file_name)) {
             $file = new \stdClass();
             $file->name = $file_name;
+            // get date modified of file
             $date = filemtime($this->get_upload_path($file_name));
             $file->date = new DateTime("@$date");
             $file->size = $this->get_file_size(
